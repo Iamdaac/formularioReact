@@ -1,70 +1,92 @@
-# Getting Started with Create React App
+# 📝 Formulario de Registro de Usuarios
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+## 🚀 Características Principales
 
-In the project directory, you can run:
+- ✅ **Validaciones completas** en todos los campos
+- 💾 **Persistencia de datos** con `sessionStorage`
+- 🎨 **Diseño moderno y responsive**
+- ⚡ **Validaciones en tiempo real**
+- 📱 **Interfaz optimizada para dispositivos móviles**
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🛠️ Tecnologías Utilizadas
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+| Tecnología                | Descripción                              |
+| ------------------------- | ---------------------------------------- |
+| ⚛️ **React 18**           | Biblioteca principal para la interfaz    |
+| 📅 **date-fns**           | Manipulación y validación de fechas      |
+| 🎨 **CSS3**               | Estilos, animaciones y diseño responsive |
+| 💾 **SessionStorage API** | Persistencia de datos en el navegador    |
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🎯 Funcionalidades
 
-### `npm run build`
+### 📋 Formulario de Registro
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Nombre completo:** Validación de caracteres alfabéticos, espacios y tildes.
+- **Fecha de nacimiento:** Rango permitido entre `1900-01-01` y la fecha actual.
+- **Comentarios:** Campo opcional con validación de caracteres especiales permitidos.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## ✅ Validaciones Implementadas
 
-### `npm run eject`
+### 🧍 Nombre Completo
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Campo obligatorio
+- Solo caracteres A–Z, espacios y tildes
+- No se permiten números ni símbolos especiales
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 📅 Fecha de Nacimiento
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Campo obligatorio
+- Rango: `1900-01-01` → fecha actual
+- No se permiten fechas futuras
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 💬 Comentarios
 
-## Learn More
+- Campo opcional
+- Caracteres permitidos:  
+  `A-Z a-z 0-9 . , " ' & @ $ * ( ) - ; ? ¿ ¡ !`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 💾 Persistencia de Datos
 
-### Code Splitting
+Los registros se guardan automáticamente en `sessionStorage`, permitiendo que los datos **persistan incluso al recargar la página**.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## 📱 Diseño Responsive
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Adaptado a **móviles y tablets**
+- **Grid flexible** para visualización de tarjetas
+- Navegación táctil fluida y optimizada
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 📂 Estructura del Proyecto
 
-### Advanced Configuration
+src/
+├── components/
+│ └── cardUsuario.js # Componente para mostrar tarjetas de usuarios
+├── pages/
+│ └── formUsuario.js # Componente del formulario principal
+├── App.js # Componente raíz de la aplicación
+└── App.css # Estilos globales y diseño principal
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 🧪 Pruebas (Pendiente)
 
-### Deployment
+Se planifica la implementación de pruebas unitarias y de integración utilizando **Jest** para validar el correcto funcionamiento de los componentes y las funciones de validación.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 📚 Referencias
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [Documentación oficial de React](https://react.dev/)
+- [date-fns Documentation](https://date-fns.org/docs/)
+- [MDN Web Docs - SessionStorage](https://developer.mozilla.org/es/docs/Web/API/Window/sessionStorage)
+- [Guía de validaciones en formularios HTML5](https://developer.mozilla.org/es/docs/Learn/Forms/Form_validation)
+- [Save Javascript objects in sessionStorage](https://stackoverflow.com/questions/6193574/save-javascript-objects-in-sessionstorage)
