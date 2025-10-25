@@ -82,6 +82,7 @@ const FormUsuario = ({ onAgregarPersona }) => {
 
     if (noHayErrores) {
       const persona = {
+        id: Date.now(),
         nombreCompleto: formData.nombreCompleto.trim(),
         fechaNacimiento: formData.fechaNacimiento,
         comentarios: formData.comentarios.trim(),

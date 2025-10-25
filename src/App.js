@@ -1,32 +1,46 @@
-import "./App.css";
 import { useState, useEffect } from "react";
 import FormUsuario from "./pages/formUsuario";
 import CardUsuario from "./components/cardUsuario";
+import "./App.css";
 
 function App() {
   const [personas, setPersonas] = useState([]);
 
-  //Carga de datos sessionStorage
+  // Carga de datos sessionStorage
   useEffect(() => {
-    const datos = sessionStorage.getItem("personas");
+    const datos = sessionStorage.getItem("personasRegistradas");
     if (datos) {
-      setPersonas(JSON.parse(datos));
+      try {
+        const personasParseadas = JSON.parse(datos);
+        setPersonas(personasParseadas);
+      } catch (error) {
+        console.error("Error al cargar datos del sessionStorage:", error);
+        sessionStorage.removeItem("personasRegistradas");
+      }
     }
   }, []);
 
-  //Guardar datos cuando cambian
+  // Guardar datos cuando cambian
   useEffect(() => {
-    sessionStorage.setItem("personas", JSON.stringify(personas));
+    try {
+      sessionStorage.setItem("personasRegistradas", JSON.stringify(personas));
+    } catch (error) {
+      console.error("Error al guardar en sessionStorage:", error);
+    }
   }, [personas]);
 
   const agregarPersona = (persona) => {
-    setPersonas([...personas, persona]);
+    const personaConId = {
+      ...persona,
+      id: Date.now(),
+    };
+    setPersonas((prevPersonas) => [...prevPersonas, personaConId]);
   };
 
   return (
     <div className="App">
       <header className="app-header">
-        <h1>Formulario</h1>
+        <h1>Formulario de Registro</h1>
       </header>
 
       <main className="app-main">
