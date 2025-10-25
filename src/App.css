@@ -1,0 +1,456 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+.App {
+  min-height: 100vh;
+  padding: 20px;
+}
+
+h1 {
+  display: none;
+}
+
+// ESTILOS FORMULARIO
+.formContainer {
+  max-width: 600px;
+  margin: 0 auto 3rem auto;
+  padding: 0 1rem;
+}
+
+.formUsuario {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e9ecef;
+}
+
+.formUsuario h2 {
+  margin-bottom: 2rem;
+  color: #2c3e50;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.inputGroup {
+  margin-bottom: 1.75rem;
+  position: relative;
+}
+
+.inputGroup label {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  color: #495057;
+  font-size: 0.95rem;
+}
+
+.inputGroup input,
+.inputGroup textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #e1e5e9;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  background-color: #fff;
+}
+
+.inputGroup input:focus,
+.inputGroup textarea:focus {
+  outline: none;
+  border-color: #4dabf7;
+  box-shadow: 0 0 0 3px rgba(77, 171, 247, 0.1);
+  background-color: #fff;
+}
+
+.inputGroup input.error,
+.inputGroup textarea.error {
+  border-color: #fa5252;
+  background-color: #fff5f5;
+}
+
+.inputGroup input.error:focus,
+.inputGroup textarea.error:focus {
+  border-color: #fa5252;
+  box-shadow: 0 0 0 3px rgba(250, 82, 82, 0.1);
+}
+
+.mensajeError {
+  color: #fa5252;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  display: block;
+  font-weight: 500;
+}
+
+.exito {
+  background: linear-gradient(135deg, #51cf66, #2f9e44);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 600;
+  box-shadow: 0 2px 10px rgba(46, 204, 113, 0.3);
+  animation: slideIn 0.3s ease;
+}
+
+.btnGuardar {
+  width: 100%;
+  background: linear-gradient(135deg, #4dabf7, #339af0);
+  color: white;
+  padding: 1.125rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.btnGuardar:hover {
+  background: linear-gradient(135deg, #339af0, #228be6);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(51, 154, 240, 0.3);
+}
+
+.btnGuardar:active {
+  transform: translateY(0);
+}
+
+// ESTILOS TARJETAS
+.listaPersona {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.listaPersona h2 {
+  color: #2c3e50;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.contador-personas {
+  text-align: center;
+  color: #6c757d;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+.sin-datos {
+  text-align: center;
+  color: #6c757d;
+  font-style: italic;
+  padding: 3rem 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  font-size: 1.1rem;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e9ecef;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.cardHeader {
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
+}
+
+.cardHeader h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #2c3e50;
+  line-height: 1.4;
+}
+
+.cardBody {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+.cardBody p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  display: flex;
+  align-items: flex-start;
+}
+
+.fecha-info {
+  color: #495057;
+  font-size: 0.95rem;
+}
+
+.fecha-info::before {
+  content: "📅";
+  margin-right: 0.5rem;
+  font-size: 1.1em;
+}
+
+.edad-info {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.edad-info::before {
+  content: "🎂";
+  margin-right: 0.5rem;
+  font-size: 1.1em;
+}
+
+.comentarios-section {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 2px solid #f1f3f4;
+}
+
+.comentarios-section strong {
+  color: #2c3e50;
+  display: block;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.comentarios-section strong::before {
+  content: "💬";
+  margin-right: 0.5rem;
+  font-size: 1.1em;
+}
+
+.comentarios-texto {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 4px solid #4dabf7;
+  margin: 0;
+  color: #495057;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+// ANIMACION
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  animation: slideInUp 0.5s ease;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// RESPONSIVE DESIGN
+@media (max-width: 768px) {
+  .App {
+    padding: 15px;
+  }
+
+  .formContainer {
+    margin-bottom: 2rem;
+    padding: 0 0.5rem;
+  }
+
+  .formUsuario {
+    padding: 2rem 1.5rem;
+  }
+
+  .formUsuario h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .inputGroup {
+    margin-bottom: 1.5rem;
+  }
+
+  .inputGroup input,
+  .inputGroup textarea {
+    padding: 0.875rem;
+  }
+
+  .btnGuardar {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+
+  .listaPersona {
+    padding: 0 0.5rem;
+  }
+
+  .listaPersona h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .cardGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .card {
+    margin: 0 auto;
+    max-width: 400px;
+  }
+
+  .cardHeader {
+    padding: 1.25rem 1.25rem 0.75rem 1.25rem;
+  }
+
+  .cardHeader h3 {
+    font-size: 1.2rem;
+  }
+
+  .cardBody {
+    padding: 0 1.25rem 1.25rem 1.25rem;
+  }
+
+  .cardBody p {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .fecha-info::before,
+  .edad-info::before,
+  .comentarios-section strong::before {
+    margin-bottom: 0.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .App {
+    padding: 10px;
+  }
+
+  .formUsuario {
+    padding: 1.5rem 1rem;
+    border-radius: 10px;
+  }
+
+  .formUsuario h2 {
+    font-size: 1.3rem;
+  }
+
+  .inputGroup input,
+  .inputGroup textarea {
+    padding: 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  .btnGuardar {
+    padding: 0.875rem;
+    font-size: 0.95rem;
+  }
+
+  .card {
+    border-radius: 10px;
+  }
+
+  .cardHeader {
+    padding: 1rem 1rem 0.5rem 1rem;
+  }
+
+  .cardBody {
+    padding: 0 1rem 1rem 1rem;
+  }
+
+  .comentarios-texto {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+}
+
+.btnGuardar:disabled {
+  background: #adb5bd;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.btnGuardar:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+// INPUT FECHA
+.inputGroup input[type="date"] {
+  cursor: pointer;
+}
+
+.inputGroup input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+}
+
+.inputGroup input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  background-color: #f1f3f4;
+}
+
+/* Scroll suave */
+html {
+  scroll-behavior: smooth;
+}
