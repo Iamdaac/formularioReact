@@ -6,9 +6,10 @@
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f8f9fa;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   color: #333;
   line-height: 1.6;
+  min-height: 100vh;
 }
 
 .App {
@@ -16,42 +17,17 @@ body {
   padding: 20px;
 }
 
-h1 {
-  display: none;
-}
-
-// ESTILOS FORMULARIO
-.formContainer {
-  max-width: 600px;
-  margin: 0 auto 4rem auto;
-  padding: 0 1rem;
-}
-
-.formUsuario {
-  background: #ffffff;
-  padding: 3rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  border: 1px solid #e9ecef;
-  position: relative;
-  backdrop-filter: blur(10px);
-}
-
-.formUsuario::before {
-  content: "";
-  position: absolute;
-  top: -25px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 2.5rem;
-  padding: 0.5 rem;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-}
-
-.formUsuario h2 {
+/* Header */
+.app-header {
   text-align: center;
   margin-bottom: 3rem;
+  padding: 2rem;
+}
+
+.app-header h1 {
+  display: block !important;
+  font-size: 2.5rem;
+  text-align: center;
   padding: 3rem 2rem;
   background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
   color: white;
@@ -62,98 +38,176 @@ h1 {
   overflow: hidden;
 }
 
-.inputGroup {
-  margin-bottom: 2rem;
+.app-header p {
+  color: #7f8c8d;
+  font-size: 1.1rem;
+}
+
+/* Container Form */
+.formContainer {
+  max-width: 600px;
+  margin: 0 auto 3rem auto;
+  padding: 0 1rem;
+}
+
+.formUsuario {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e1e8ed;
   position: relative;
 }
 
-.inputGroup label {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.75rem;
+.formUsuario::before {
+  content: "👤";
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  background: white;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border: 2px solid #e1e8ed;
+}
+
+.formUsuario h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #2c3e50;
+  font-size: 1.8rem;
   font-weight: 600;
-  color: #1f2937;
+}
+
+/* Input groups */
+.inputGroup {
+  margin-bottom: 1.5rem;
+}
+
+.inputGroup label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #2c3e50;
   font-size: 1rem;
-  gap: 0.5rem;
 }
 
 .inputGroup input,
 .inputGroup textarea {
   width: 100%;
   padding: 1rem;
-  border: 2px solid #e1e5e9;
+  border: 2px solid #dcdfe3;
   border-radius: 8px;
   font-size: 1rem;
   font-family: inherit;
   transition: all 0.3s ease;
-  background-color: #fff;
+  background-color: #f8f9fa;
 }
 
 .inputGroup input:focus,
 .inputGroup textarea:focus {
   outline: none;
-  border-color: #4dabf7;
-  box-shadow: 0 0 0 3px rgba(77, 171, 247, 0.1);
-  background-color: #fff;
+  border-color: #3498db;
+  background-color: white;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+  transform: translateY(-2px);
 }
 
+.inputGroup input:hover,
+.inputGroup textarea:hover {
+  border-color: #bdc3c7;
+}
+
+/* Error */
 .inputGroup input.error,
 .inputGroup textarea.error {
-  border-color: #fa5252;
-  background-color: #fff5f5;
+  border-color: #e74c3c;
+  background-color: #fdf2f2;
 }
 
 .inputGroup input.error:focus,
 .inputGroup textarea.error:focus {
-  border-color: #fa5252;
-  box-shadow: 0 0 0 3px rgba(250, 82, 82, 0.1);
+  border-color: #e74c3c;
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
 }
 
 .mensajeError {
-  color: #fa5252;
+  color: #e74c3c;
   font-size: 0.85rem;
   margin-top: 0.5rem;
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   font-weight: 500;
 }
 
+.mensajeError::before {
+  content: "⚠";
+  font-size: 0.9rem;
+}
+
+/* Exito */
 .exito {
-  background: linear-gradient(135deg, #51cf66, #2f9e44);
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
   color: white;
   padding: 1rem 1.5rem;
   border-radius: 8px;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   text-align: center;
   font-weight: 600;
-  box-shadow: 0 2px 10px rgba(46, 204, 113, 0.3);
-  animation: slideIn 0.3s ease;
+  box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+  animation: slideIn 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.exito::before {
+  content: "✅";
 }
 
 .btnGuardar {
   width: 100%;
-  background: linear-gradient(135deg, blue, #3a78ffff);
+  background: linear-gradient(135deg, #3498db, #2980b9);
   color: white;
-  padding: 1.125rem;
+  padding: 1.2rem;
   border: none;
   border-radius: 8px;
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
+  position: relative;
+  overflow: hidden;
 }
 
 .btnGuardar:hover {
-  background: linear-gradient(135deg, #339af0, #228be6);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(51, 154, 240, 0.3);
+  background: linear-gradient(135deg, #2980b9, #3498db);
+  transform: translateY(-3px);
+  box-shadow: 0 7px 20px rgba(52, 152, 219, 0.4);
 }
 
 .btnGuardar:active {
-  transform: translateY(0);
+  transform: translateY(-1px);
 }
 
-// ESTILOS TARJETAS
+.btnGuardar:disabled {
+  background: #bdc3c7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.btnGuardar:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Cards */
 .listaPersona {
   max-width: 1200px;
   margin: 0 auto;
@@ -212,7 +266,7 @@ h1 {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #3498db, #2980b9);
 }
 
 .card:hover {
@@ -290,14 +344,14 @@ h1 {
   background: #f8f9fa;
   padding: 1rem;
   border-radius: 8px;
-  border-left: 4px solid #4dabf7;
+  border-left: 4px solid #3498db;
   margin: 0;
   color: #495057;
   line-height: 1.6;
   font-size: 0.95rem;
 }
 
-// ANIMACION
+/* Animaciones */
 @keyframes slideIn {
   from {
     opacity: 0;
@@ -324,10 +378,14 @@ h1 {
   }
 }
 
-// RESPONSIVE DESIGN
+/* Responsive */
 @media (max-width: 768px) {
   .App {
     padding: 15px;
+  }
+
+  .app-header h1 {
+    font-size: 2rem;
   }
 
   .formContainer {
@@ -393,12 +451,6 @@ h1 {
     flex-direction: column;
     align-items: flex-start;
   }
-
-  .fecha-info::before,
-  .edad-info::before,
-  .comentarios-section strong::before {
-    margin-bottom: 0.25rem;
-  }
 }
 
 @media (max-width: 480px) {
@@ -406,9 +458,17 @@ h1 {
     padding: 10px;
   }
 
+  .app-header {
+    padding: 1rem;
+  }
+
+  .app-header h1 {
+    font-size: 1.7rem;
+  }
+
   .formUsuario {
     padding: 1.5rem 1rem;
-    border-radius: 10px;
+    border-radius: 12px;
   }
 
   .formUsuario h2 {
@@ -444,19 +504,6 @@ h1 {
   }
 }
 
-.btnGuardar:disabled {
-  background: #adb5bd;
-  cursor: not-allowed;
-  transform: none;
-  box-shadow: none;
-}
-
-.btnGuardar:disabled:hover {
-  transform: none;
-  box-shadow: none;
-}
-
-// INPUT FECHA
 .inputGroup input[type="date"] {
   cursor: pointer;
 }
@@ -465,13 +512,14 @@ h1 {
   cursor: pointer;
   padding: 0.25rem;
   border-radius: 4px;
+  transition: background-color 0.3s ease;
 }
 
 .inputGroup input[type="date"]::-webkit-calendar-picker-indicator:hover {
-  background-color: #f1f3f4;
+  background-color: #ecf0f1;
 }
 
-//SCROLL SUAVE
+/* Scroll suave */
 html {
   scroll-behavior: smooth;
 }
